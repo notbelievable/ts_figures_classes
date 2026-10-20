@@ -14,8 +14,29 @@ export class Triangle implements Figure {
     public b: number,
     public c: number,
   ) {
-    if ((a <= 0 || b <= 0 || c <= 0) || (a >= b + c || c >= a + b || b >= a + c)) {
-      throw new Error('Введите коректное значение');
+    if (a <= 0) {
+      throw new Error(
+        'Значение стороны "a" меньше 0. Ведите корректное значение',
+      );
+    }
+
+    if (b <= 0) {
+      throw new Error(
+        'Значение стороны "b" стороны меньше 0. Ведите корректное значение',
+      );
+
+    }
+
+    if (c <= 0) {
+      throw new Error(
+        'Значение стороны "c" стороны меньше 0. Ведите корректное значение',
+      );
+    }
+
+    if (a >= b + c || c >= a + b || b >= a + c) {
+      throw new Error(
+        'Недопустимые стороны треугольника: длина самой длинной стороны должна быть меньше суммы длин двух других сторон',
+      );
     }
   }
 
@@ -34,7 +55,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('Радиус должен быть больше нуля');
+      throw new Error('Введенное значение радиуса меньше 0. Введите корректное значение');
     }
   }
 
@@ -52,8 +73,12 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    if (width <= 0 || height <= 0) {
-      throw new Error('Значение длжно быть больше 0');
+    if (width <= 0) {
+      throw new Error('Введенная ширина меньше 0. Введите значение больше 0!!');
+    }
+
+    if (height <= 0) {
+      throw new Error('Введенная высота меньше 0. Введите значение больше 0!!');
     }
   }
 
