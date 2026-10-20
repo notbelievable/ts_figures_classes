@@ -24,7 +24,6 @@ export class Triangle implements Figure {
       throw new Error(
         'Значение стороны "b" стороны меньше 0. Ведите корректное значение',
       );
-
     }
 
     if (c <= 0) {
@@ -35,7 +34,8 @@ export class Triangle implements Figure {
 
     if (a >= b + c || c >= a + b || b >= a + c) {
       throw new Error(
-        'Недопустимые стороны треугольника: длина самой длинной стороны должна быть меньше суммы длин двух других сторон',
+        'Недопустимые стороны треугольника: длина самой длинной' +
+          ' стороны должна быть меньше суммы длин двух других сторон',
       );
     }
   }
@@ -43,6 +43,7 @@ export class Triangle implements Figure {
   getArea(): number {
     const p = (this.a + this.b + this.c) / 2;
     const area = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+
     return Math.floor(area * 100) / 100;
   }
 }
@@ -55,12 +56,15 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('Введенное значение радиуса меньше 0. Введите корректное значение');
+      throw new Error(
+        'Введенное значение радиуса меньше 0. Введите корректное значение',
+      );
     }
   }
 
   getArea(): number {
     const area = Math.PI * this.radius * this.radius;
+
     return Math.floor(area * 100) / 100;
   }
 }
